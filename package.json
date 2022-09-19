@@ -1,0 +1,73 @@
+{
+    "name": "c3-lang",
+    "displayName": "C3",
+    "description": "C3 Language support for Visual Studio Code",
+    "author": "Jean-Baptiste Perrier",
+    "version": "0.3.39",
+    "publisher": "C3",
+    "engines": {
+        "vscode": "^1.61.0"
+    },
+    "activationEvents": [
+		"onLanguage:C3"
+	],
+    "main": "./client/out/extension",
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "configuration":{
+            "type": "object",
+            "title": "C3",
+            "properties": {
+                "C3.language-server.trace.server": {
+                    "scope": "window",
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "verbose",
+					"description": "Traces the communication between VS Code and the language server."
+                },
+                "C3.compiler.path": {
+                    "scope": "workspace",
+                    "type": "string",
+                    "description": "The path to your C3 compiler. Can be the executable name if added to PATH env.",
+                    "default": "c3c.exe"
+                }
+            }
+        },
+        "snippets": [
+            {
+                "language": "C3",
+                "path": "snippets.json"
+            }
+        ],
+        "languages": [{
+            "id": "C3",
+            "aliases": ["C3", "c3"],
+            "extensions": [".c3", ".c3i", ".c3t"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "C3",
+            "scopeName": "source.c3",
+            "path": "./syntaxes/C3.tmLanguage.json"
+        }]
+    },
+    "scripts": {
+		"compile": "tsc -b"
+	},
+    "devDependencies": {
+		"@types/mocha": "^9.1.0",
+		"@types/node": "^16.11.7",
+		"@typescript-eslint/eslint-plugin": "^5.30.0",
+		"@typescript-eslint/parser": "^5.30.0",
+		"eslint": "^8.13.0",
+		"mocha": "^9.2.1",
+		"typescript": "^4.7.2"
+	}
+}

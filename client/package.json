@@ -1,0 +1,22 @@
+{
+	"name": "c3-lang.language-server",
+	"description": "Language server for C3 programming language.",
+	"author": "Jean-Baptiste Perrier",
+	"license": "MIT",
+	"version": "0.3.39",
+	"publisher": "Jean-Baptiste Perrier",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Microsoft/vscode-extension-samples"
+	},
+	"engines": {
+		"vscode": "^1.63.0"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^7.0.0"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.63.0",
+		"@vscode/test-electron": "^2.1.2"
+	}
+}

@@ -1,0 +1,80 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"fileTypes": [".c3"],
+	"name": "C3",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#linecomment"
+		},
+		{
+			"include": "#blockcomment"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#functions"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.c3",
+				"match": "\\b(alias|anyerr|as|asm|assert|bitstruct|break|case|catch|const|continue|default|define|do|else|enum|extern|false|fault|for|foreach|foreachr|fn|generic|if|import|macro|module|nextcase|null|private|return|static|struct|tlocal|true|try|typeid|union|var|while)\\b"
+			}]
+		},
+		"types": {
+			"patterns": [{
+				"name": "storage.type.c3",
+				"match": "\\b(void|variant|bool|float128|double|float|long|ulong|int128|uint128|int|uint|short|ushort|ichar|char|isize|usize|iptr|uptr|iptrdiff|uptrdiff|float16)\\b"
+			}]
+		},
+		
+		"strings": {
+			"name": "string.quoted.double.c3",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.c3",
+					"match": "\\\\."
+				}
+			]
+		},
+		"operators": {
+			"name": "keyword.operator.c3",
+			"match": "(\\+|\\-|\\/|\\*|\\%|\\=)"
+		},
+		"linecomment": {
+			"name": "comment.line.double-slash",
+			"begin": "//",
+			"end": "\n"
+		},
+		"blockcomment": {
+			"name": "comment.block",
+			"begin": "\\/\\*",
+			"end": "\\*\\/"
+		},
+		"numbers": {
+			"name": "constant.numeric",
+			"match": "(?<=\\W)(\\d+\\.\\d+|\\d+\\.|\\d+)"
+		},
+		"functions": {
+			"name": "entity.name.function",
+			"match": "((?<=\\W)|(?<=\\s))[a-zA-Z0-9]+\\s*(?=\\()"
+		}
+	},
+	"scopeName": "source.c3"
+}
